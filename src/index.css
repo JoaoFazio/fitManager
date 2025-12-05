@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-slate-900 font-sans antialiased dark:bg-slate-900 dark:text-slate-100 cursor-default select-none;
+  }
+
+  /* Restore selection for inputs and text areas */
+  input, textarea, [contenteditable="true"] {
+    @apply select-text cursor-text;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-primary dark:text-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-primary font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:opacity-90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-primary text-white font-semibold px-4 py-2 rounded-lg transition-all duration-200 hover:opacity-90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .card {
+    @apply bg-surface rounded-xl shadow-sm border border-slate-100 p-6;
+  }
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all;
+  }
+  
+  /* HACK: Hide password content without using type="password" to avoid browser popups */
+  .password-mask {
+    -webkit-text-security: disc;
+    font-family: text-security-disc; /* Fallback */
+  }
+}
