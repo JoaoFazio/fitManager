@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { FitManagerProvider } from './context/FitManagerContext';
 
 // Pages & Layouts
@@ -25,7 +25,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 function App() {
   return (
     <FitManagerProvider>
-      <Router basename={import.meta.env.BASE_URL}>
+      <Router>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
